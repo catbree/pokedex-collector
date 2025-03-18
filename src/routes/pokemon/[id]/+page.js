@@ -1,6 +1,6 @@
 import { fetchPokemonCards } from '$lib/services/TCGService.js';
 import { getCollectedPokemons } from '$lib/services/StorageService.js';
-import { fetchNationalDex } from "$lib/services/nationalDexService.js";
+import { fetchNationalDex } from "$lib/services/NationalDexService.js";
 
 export async function load({ params, fetch }) {
   const pokemonId = params.id;

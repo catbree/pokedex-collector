@@ -1,5 +1,5 @@
-import { fetchNationalDex } from "$lib/services/nationalDexService";
-import { getCollectedPokemons } from "$lib/services/storageService";
+import { fetchNationalDex } from "$lib/services/NationalDexService";
+import { getCollectedPokemons } from "$lib/services/StorageService";
 
 export async function load({ fetch }) {
   const pokedex = await fetchNationalDex(fetch);
