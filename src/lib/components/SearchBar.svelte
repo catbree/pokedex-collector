@@ -35,5 +35,5 @@
     />
       <button on:click={scrollToPokemon} class="bg-blue-500 text-white px-4 py-2 rounded">Search</button>
     </div>
-    <button on:click={scrollToTop} class="bg-gray-300 px-3 py-2 rounded cursor-pointer">⬆️</button>
+    <button on:click={scrollToTop} class="border border-gray-300 px-3 py-2 rounded cursor-pointer hover:bg-gray-300">⬆️</button>
   </div>
