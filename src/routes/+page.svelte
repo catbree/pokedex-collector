@@ -5,6 +5,12 @@
   import SearchBar from '$lib/components/SearchBar.svelte';
 </script>
 
+<style>
+  [id^="pokemon-"] {
+    scroll-margin-top: 80px;
+  }
+</style>
+
 <h1 class="text-2xl font-bold text-center pb-4">National Pokédex</h1>
 <ProgressSummary/>
 <SearchBar pokedex={data.pokedex} />
