@@ -6,6 +6,7 @@
 </script>
 
 <style>
+  /*-- this only applies when you're scrolling to the specific element */
   [id^="pokemon-"] {
     scroll-margin-top: 80px;
   }

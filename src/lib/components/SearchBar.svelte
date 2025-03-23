@@ -12,6 +12,8 @@
         const el = document.getElementById(`pokemon-${match.id}`);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
+          el.classList.add('highlight');
+          setTimeout(() => el.classList.remove('highlight'), 1500);
         }
       } else {
         alert('Pokémon not found!');

@@ -12,7 +12,7 @@
     }
   </script>
   
-  <div class="flex items-center justify-between p-4 rounded-lg bg-white transition hover:bg-gray-200 cursor-pointer ">
+  <div class="flex items-center justify-between p-4 rounded-lg transition hover:bg-gray-200 cursor-pointer ">
     <div class="flex items-center space-x-3">
       <img src="{pokemon.sprite}" alt="{pokemon.name}" class="w-10 h-10" />
       <div>
