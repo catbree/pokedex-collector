@@ -13,8 +13,11 @@
 {#each data.tradingCards as card}
   <div class="rounded-lg">
     <img src="{card.image}" alt="{card.name}" class="w-full h-auto" />
-    <p>{card.releaseDate}, {card.setSeriesName}, {card.setName}{#if card.price}, ${card.price}{/if}
-    </p>
+    <div class="flex flex-col pt-2 pl-2">
+      <p class="text-xs">{card.releaseDate}</p>
+      <p class="text-xs">{card.setSeriesName}, {card.setName}</p>
+      {#if card.price}<p class="text-xs">${card.price}</p>{/if}
+    </div>
   </div>
 {/each}
 </div>
