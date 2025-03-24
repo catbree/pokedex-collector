@@ -13,6 +13,8 @@
 {#each data.tradingCards as card}
   <div class="rounded-lg">
     <img src="{card.image}" alt="{card.name}" class="w-full h-auto" />
+    <p>{card.releaseDate}, {card.setSeriesName}, {card.setName}{#if card.price}, ${card.price}{/if}
+    </p>
   </div>
 {/each}
 </div>

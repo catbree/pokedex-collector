@@ -11,6 +11,11 @@ export async function fetchPokemonCards(pokemonId) {
     return data.data.map(card => ({
         id: card.id,
         name: card.name,
-        image: card.images.large
+        image: card.images.large,
+        releaseDate: card.set.releaseDate,
+        setName: card.set.name,
+        setSeriesName: card.set.series,
+        price: card.tcgplayer?.prices?.normal?.market ?? null // fallback if no price
+
     }));
 }
