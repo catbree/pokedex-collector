@@ -16,7 +16,11 @@
     <div class="flex items-center space-x-3">
       <img src="{pokemon.sprite}" alt="{pokemon.name}" class="w-10 h-10" />
       <div>
-        <p class="text-gray-500 text-sm font-medium">#{pokemon.id.toString().padStart(4, '0')}</p>
+        <span class="relative px-1">
+          <p class="z-1 relative inline-block font-pokemon text-xs text-pkd-purple-1 stroke-pkd-purple-3 pl-1" style="-webkit-text-stroke: 2px var(--color-pkd-purple-3); paint-order: stroke fill;">{pokemon.id.toString().padStart(4, '0')}</p>
+          <div class="absolute bg-pkd-purple-3 h-[40%] w-full top-[64%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xs"></div>
+        </span>
+        
         <p class="text-lg text-pkd-purple-6 font-semibold">{pokemon.name}</p>
       </div>
     </div>
