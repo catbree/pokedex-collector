@@ -33,7 +33,7 @@
       class="border p-2 rounded w-full mr-2"
       on:keydown={(e) => { if (e.key === 'Enter') scrollToPokemon(); }}
     />
-      <button on:click={scrollToPokemon} class="bg-blue-500 text-white px-4 py-2 rounded">Search</button>
+      <button on:click={scrollToPokemon} class="bg-pkd-purple-4 text-white px-4 py-2 rounded">Search</button>
     </div>
     <button on:click={scrollToTop} class="border border-gray-300 px-3 py-2 rounded cursor-pointer hover:bg-gray-300">⬆️</button>
   </div>

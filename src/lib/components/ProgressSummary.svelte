@@ -13,12 +13,9 @@
 
 </script>
 
-<div class="max-w-4xl mx-auto mt-2 mb-8 p-4 border border-gray-200">
-    <div class="flex justify-between pb-2">
-        <p>Completion</p>
-        <p>{current}/{max} ({percentage}%)</p>
+<div class="flex items-center gap-2 py-3 px-1">
+    <div class="flex-grow bg-pkd-white-a40 rounded-full h-4 border-2 border-pkd-purple-1">
+        <div class="bg-pkd-purple-4 h-full rounded-full" style="width: {percentage}%;)"></div>
     </div>
-    <div class="w-full bg-gray-200 rounded-full h-2.5">
-        <div class="bg-blue-600 h-2.5 rounded-full" style="width: {percentage}%"></div>
-    </div>
+    <p class="font-pokemon text-xs text-pkd-white-a100">{current}/{max} ({percentage}%)</p>
 </div>

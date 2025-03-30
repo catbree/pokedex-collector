@@ -17,7 +17,7 @@
       <img src="{pokemon.sprite}" alt="{pokemon.name}" class="w-10 h-10" />
       <div>
         <p class="text-gray-500 text-sm font-medium">#{pokemon.id.toString().padStart(4, '0')}</p>
-        <p class="text-lg font-semibold">{pokemon.name}</p>
+        <p class="text-lg text-pkd-purple-6 font-semibold">{pokemon.name}</p>
       </div>
     </div>
   

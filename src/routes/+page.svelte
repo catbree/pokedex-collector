@@ -3,6 +3,7 @@
   import PokemonHeader from '$lib/components/PokemonHeader.svelte';
   import ProgressSummary from '$lib/components/ProgressSummary.svelte';
   import SearchBar from '$lib/components/SearchBar.svelte';
+  import SectionHeader from '$lib/components/SectionHeader.svelte';
 </script>
 
 <style>
@@ -11,13 +12,13 @@
     scroll-margin-top: 80px;
   }
 </style>
-
-<h1 class="text-2xl font-bold text-center pb-4">National Pokédex</h1>
-<ProgressSummary/>
 <SearchBar pokedex={data.pokedex} />
+<SectionHeader left="Collected"/>
+<ProgressSummary/>
+<SectionHeader left="National Pokedex"/>
 <ul class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
   {#each data.pokedex as pokemon}
-    <li class="bg-white rounded-lg" id="pokemon-{pokemon.id}">
+    <li class="bg-pkd-purple-1 rounded-lg" id="pokemon-{pokemon.id}">
       <a href="/pokemon/{pokemon.id}" class="block">
         <PokemonHeader {pokemon}/>
       </a>
