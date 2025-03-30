@@ -36,6 +36,6 @@
       class="text-gray-400 hover:text-gray-600 transition px-2 py-2 rounded-full cursor-pointer"
       on:click|stopPropagation={handleToggle}
     >
-      {#if collected} ✅ {:else} ❌ {/if}
+      {#if collected} <div class="bg-pkd-white-a0 rounded-full border-2 border-pkd-white-a0"><img src="/icons/pokeball.svg" alt="collected" /></div> {:else} <div class="bg-pkd-white-a40 rounded-full border-2 border-dashed border-pkd-purple-2"><img src="/icons/noball.svg" alt="not collected" /></div> {/if}
     </button>
   </div>
