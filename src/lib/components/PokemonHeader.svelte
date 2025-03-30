@@ -25,7 +25,7 @@
       </div>
       <div class="flex flex-col justify-center items-start">
         <span class="relative px-1 leading-none">
-          <span class="z-1 relative inline-block font-pokemon text-xs text-pkd-purple-1 stroke-pkd-purple-3 pl-1" style="-webkit-text-stroke: 3px var(--color-pkd-purple-3); paint-order: stroke fill;">{pokemon.id.toString().padStart(4, '0')}</span>
+          <span class="z-1 relative inline-block font-pokemon text-xs text-pkd-purple-1 stroke-pkd-purple-3 px-1" style="-webkit-text-stroke: 3px var(--color-pkd-purple-3); paint-order: stroke fill;">{pokemon.id.toString().padStart(4, '0')}</span>
           <div class="absolute bg-pkd-purple-3 h-[40%] w-full top-[63%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xs"></div>
         </span>
         <p class="pt-1 font-pokemon text-xs text-pkd-purple-6 pb-1">{pokemon.name.toUpperCase()}</p>
