@@ -16,9 +16,9 @@
 <SectionHeader left="Collected"/>
 <ProgressSummary/>
 <SectionHeader left="National Pokedex"/>
-<ul class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<ul class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 my-2">
   {#each data.pokedex as pokemon}
-    <li class="bg-pkd-purple-1 rounded-lg" id="pokemon-{pokemon.id}">
+    <li class="bg-pkd-purple-1 " id="pokemon-{pokemon.id}">
       <a href="/pokemon/{pokemon.id}" class="block">
         <PokemonHeader {pokemon}/>
       </a>
