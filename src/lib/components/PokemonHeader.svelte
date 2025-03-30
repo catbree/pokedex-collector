@@ -12,7 +12,7 @@
     }
   </script>
   
-  <div class="flex items-center justify-between p-1 transition hover:bg-gray-200 cursor-pointer ">
+  <div class="flex items-center justify-between p-1 pl-2">
     <div class="flex items-center space-x-3">
       <div class="w-12 h-12 border border-pkd-purple-2" style="background: repeating-linear-gradient(
     45deg,

@@ -13,7 +13,7 @@
 
 </script>
 
-<div class="flex items-center gap-2 py-3 px-1">
+<div class="max-w-4xl mx-auto flex items-center gap-2 py-3 px-1">
     <div class="flex-grow bg-pkd-white-a40 rounded-full h-4 border-2 border-pkd-purple-1">
         <div class="bg-pkd-purple-4 h-full rounded-full" style="width: {percentage}%;)"></div>
     </div>
