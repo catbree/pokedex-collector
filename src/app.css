@@ -37,6 +37,6 @@
 
 /* this is for highlighting <li> which consist of pokemon header on search */
 .highlight {
-    background-color: #cbe4ff;
+    background-color: var(--color-pkd-purple-3);
     transition: background-color 1.5s;
 }

@@ -25,15 +25,16 @@
     }
   </script>
   
-  <div class="max-w-4xl mx-auto flex justify-between gap-2 mb-4 sticky top-0 z-10 py-2 backdrop-blur">
-    <div class="flex flex-grow">
+  <div class="max-w-4xl mx-auto flex justify-between gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2">
+    <img src="/icons/masterball.svg" alt="It's a master ball" class="w-10 h-10" />
+    <div class="flex flex-grow border border-pkd-pink-3 bg-pkd-pink-4 border-2 focus-within:border-white hover:bg-pkd-pink-3">
       <input
       bind:value={searchTerm}
-      placeholder="Search Pokémon by name or ID"
-      class="border p-2 rounded w-full mr-2"
+      placeholder="Search 'ditto' or '132'"
+      class="bg-pkd-white-a0 border-0 w-full font-pokemon text-xs text-pkd-white-a100 placeholder-pkd-white-a100 border-transparent focus:border-transparent focus:ring-0"
       on:keydown={(e) => { if (e.key === 'Enter') scrollToPokemon(); }}
     />
-      <button on:click={scrollToPokemon} class="bg-pkd-purple-4 text-white px-4 py-2 rounded">Search</button>
+      <button on:click={scrollToPokemon} class="text-pkd-white-a100" aria-label="Search"><img src="/icons/search-white.svg" alt="search" class="fill-white"></button>
     </div>
-    <button on:click={scrollToTop} class="border border-gray-300 px-3 py-2 rounded cursor-pointer hover:bg-gray-300">⬆️</button>
+    <button on:click={scrollToTop} class="w-10 h-10 bg-pkd-pink-4 border-2 border-pkd-pink-3 cursor-pointer hover:bg-pkd-pink-3"><img class="w-full h-full" src="/icons/arrow-up-white.svg" alt="arrow-up icon"/></button>
   </div>
