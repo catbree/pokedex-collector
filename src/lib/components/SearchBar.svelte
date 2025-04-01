@@ -25,7 +25,7 @@
     }
   </script>
   
-  <div class="max-w-4xl mx-auto flex justify-between gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2 pr-2">
+  <div class="max-w-4xl mx-auto flex justify-between gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2 -pl-2">
     <img src="/icons/masterball.svg" alt="It's a master ball" class="w-12 h-12" />
     <div class="flex flex-grow border border-pkd-pink-3 bg-pkd-pink-4 border-2 focus-within:border-white hover:bg-pkd-pink-3">
       <input
