@@ -16,7 +16,7 @@
   }
 </script>
   
-  <div class="flex items-center justify-between p-1 pl-2">
+  <div class="flex items-center justify-between p-2">
     <div class="flex items-center space-x-3">
       <div class="w-12 h-12 border border-pkd-purple-2" style="background: repeating-linear-gradient(
     45deg,
@@ -37,15 +37,15 @@
     </div>
   
     <button 
-      class="text-gray-400 hover:text-gray-600 transition px-2 py-2 rounded-full cursor-pointer"
+      class="w-12 h-12 transition rounded-full cursor-pointer"
       on:click|stopPropagation={handleToggle}
     >
       {#if pokemonState === 1}
-        <div class="bg-pkd-white-a0 rounded-full border-2 border-pkd-white-a0"><img src="/icons/pokeball.svg" alt="collected" /></div>
+        <div class="bg-pkd-white-a0 rounded-full border-1 border-pkd-white-a0"><img src="/icons/pokeball.svg" class="w-full h-full" alt="collected" /></div>
       {:else if pokemonState === 2}
-        <div class="bg-pkd-white-a0 rounded-full border-2 border-pkd-white-a0"><img src="/icons/masterball.svg" alt="collected and locked in" /></div>
+        <div class="bg-pkd-white-a0 rounded-full border-1 border-pkd-white-a0"><img src="/icons/masterball.svg" class="w-full h-full" alt="collected and locked in" /></div>
       {:else} 
-        <div class="bg-pkd-white-a40 rounded-full border-2 border-dashed border-pkd-purple-2"><img src="/icons/noball.svg" alt="not collected" /></div>
+        <div class="bg-pkd-white-a40 rounded-full border-1 border-dashed border-pkd-purple-2 transition hover:bg-pkd-white-a80"><img src="/icons/noball.svg" class="w-full h-full" alt="not collected" /></div>
       {/if}
     </button>
   </div>

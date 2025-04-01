@@ -25,8 +25,8 @@
     }
   </script>
   
-  <div class="max-w-4xl mx-auto flex justify-between gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2">
-    <img src="/icons/masterball.svg" alt="It's a master ball" class="w-10 h-10" />
+  <div class="max-w-4xl mx-auto flex justify-between gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2 pr-2">
+    <img src="/icons/masterball.svg" alt="It's a master ball" class="w-12 h-12" />
     <div class="flex flex-grow border border-pkd-pink-3 bg-pkd-pink-4 border-2 focus-within:border-white hover:bg-pkd-pink-3">
       <input
       bind:value={searchTerm}
@@ -36,5 +36,5 @@
     />
       <button on:click={scrollToPokemon} class="text-pkd-white-a100" aria-label="Search"><img src="/icons/search-white.svg" alt="search" class="fill-white"></button>
     </div>
-    <button on:click={scrollToTop} class="w-10 h-10 bg-pkd-pink-4 border-2 border-pkd-pink-3 cursor-pointer hover:bg-pkd-pink-3"><img class="w-full h-full" src="/icons/arrow-up-white.svg" alt="arrow-up icon"/></button>
+    <button on:click={scrollToTop} class="w-12 h-12 bg-pkd-pink-4 border-2 border-pkd-pink-3 cursor-pointer hover:bg-pkd-pink-3"><img class="w-full h-full" src="/icons/arrow-up-white.svg" alt="arrow-up icon"/></button>
   </div>

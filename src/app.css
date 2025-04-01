@@ -30,9 +30,16 @@
     --color-pkd-pink-4: #B62A87;
     --color-pkd-green-3: #33727C;
     --color-pkd-green-6: #0C4C51;
+    --color-pkd-white-a80: #FFFFFFCC;
     --color-pkd-white-a40: #FFFFFF66;
     --color-pkd-white-a100: #FFFFFF;
     --color-pkd-white-a0: #FFFFFF00;
+}
+
+@media (min-width: 450px) {
+    .grid-xs-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /* this is for highlighting <li> which consist of pokemon header on search */
