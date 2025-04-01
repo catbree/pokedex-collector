@@ -1,9 +1,8 @@
 import { fetchNationalDex } from "$lib/services/NationalDexService";
-import { getCollectedPokemons } from "$lib/services/StorageService";
+import { migrateToCollectionStatesIfNeeded } from "$lib/services/StorageService";
 
 export async function load({ fetch }) {
+  migrateToCollectionStatesIfNeeded();
   const pokedex = await fetchNationalDex(fetch);
-  const collected = getCollectedPokemons(); // fetch before page load
-
-  return { pokedex, collected };
+  return { pokedex };
 }

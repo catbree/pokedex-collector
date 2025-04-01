@@ -1,27 +1,42 @@
-export function getCollectedPokemons() {
-    if (typeof window === "undefined") return [];
-    return JSON.parse(localStorage.getItem("collectedPokemons")) || [];
-}
-
-export function saveCollectedPokemons(collectedList) {
+//need to migrate old 2-state, to now's 3-state
+export function migrateToCollectionStatesIfNeeded() {
     if (typeof window === "undefined") return;
-    localStorage.setItem("collectedPokemons", JSON.stringify(collectedList)); //convert into string
-}
 
-export function addPokemonToCollection(pokemonId) {
-    let collected = getCollectedPokemons();
+    const hasNew = localStorage.getItem("collectionStates");
+    const hasOld = localStorage.getItem("collectedPokemons");
 
-    if (!collected.includes(pokemonId)) {
-        collected.push(pokemonId);
-        saveCollectedPokemons(collected);
+    if (!hasNew && hasOld) {
+        const oldIds = JSON.parse(hasOld); // an array
+        const migrated = {}; // defined explicitly as object
+
+        oldIds.forEach(id => {
+            migrated[id] = 1; // set state of pokemon id to pokeball
+        });
+
+        localStorage.setItem("collectionStates", JSON.stringify(migrated));
+        localStorage.removeItem("collectedPokemons");
     }
 }
 
-export function removePokemonFromCollection(pokemonId) {
-    let collected = getCollectedPokemons();
+export function getCollectionStates() {
+    if (typeof window === "undefined") return {};
+    return JSON.parse(localStorage.getItem("collectionStates")) || {};
+}
 
-    if (collected.includes(pokemonId)) {
-        collected = collected.filter(id => id !== pokemonId);
-        saveCollectedPokemons(collected);
-    }
+export function saveCollectionStates(updatedStates) {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("collectionStates", JSON.stringify(updatedStates)); //convert into string
+}
+
+export function getCollectionState(pokemonId) {
+    const collectionStates = getCollectionStates();
+    return Number(collectionStates[pokemonId]) || 0;
+}
+
+export function toggleCollectionState(pokemonId) {
+    const collectionStates = getCollectionStates();
+    const currentState = Number(collectionStates[pokemonId]) || 0;
+    const updatedState = (currentState + 1) % 3;
+    collectionStates[pokemonId] = updatedState;
+    saveCollectionStates(collectionStates);
 }

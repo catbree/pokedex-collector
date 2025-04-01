@@ -1,16 +1,20 @@
 <script>
-    import { toggleCollected, isCollected } from "$lib/utils/collectionUtils.js";
-    export let pokemon;
+  import {
+    toggleCollectionState,
+    getCollectionState
+  } from "$lib/services/StorageService.js";
   
-    let collected = isCollected(pokemon.id);
+  export let pokemon;
   
-    function handleToggle(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      toggleCollected(pokemon.id);
-      collected = isCollected(pokemon.id); // Ensure reactivity
-    }
-  </script>
+  let pokemonState= getCollectionState(pokemon.id);
+  
+  function handleToggle(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleCollectionState(pokemon.id);
+    pokemonState = getCollectionState(pokemon.id); // Ensure reactivity
+  }
+</script>
   
   <div class="flex items-center justify-between p-1 pl-2">
     <div class="flex items-center space-x-3">
@@ -36,6 +40,12 @@
       class="text-gray-400 hover:text-gray-600 transition px-2 py-2 rounded-full cursor-pointer"
       on:click|stopPropagation={handleToggle}
     >
-      {#if collected} <div class="bg-pkd-white-a0 rounded-full border-2 border-pkd-white-a0"><img src="/icons/pokeball.svg" alt="collected" /></div> {:else} <div class="bg-pkd-white-a40 rounded-full border-2 border-dashed border-pkd-purple-2"><img src="/icons/noball.svg" alt="not collected" /></div> {/if}
+      {#if pokemonState === 1}
+        <div class="bg-pkd-white-a0 rounded-full border-2 border-pkd-white-a0"><img src="/icons/pokeball.svg" alt="collected" /></div>
+      {:else if pokemonState === 2}
+        <div class="bg-pkd-white-a0 rounded-full border-2 border-pkd-white-a0"><img src="/icons/masterball.svg" alt="collected and locked in" /></div>
+      {:else} 
+        <div class="bg-pkd-white-a40 rounded-full border-2 border-dashed border-pkd-purple-2"><img src="/icons/noball.svg" alt="not collected" /></div>
+      {/if}
     </button>
   </div>
