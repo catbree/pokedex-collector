@@ -15,7 +15,7 @@
   <div class="rounded-lg">
     <img src="{card.image}" alt="{card.name}" class="w-full h-auto" />
     <div class="flex flex-col pt-2 pl-2 font-pokemon text-pkd-purple-1 text-2xs">
-      <p>{card.releaseDate}</p>
+      <p>{card.releaseDate.slice(0,4)}</p>
       <p>{card.setSeriesName}, {card.setName}</p>
       {#if card.price}<p class="">${card.price}</p>{/if}
     </div>
