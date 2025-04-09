@@ -15,6 +15,7 @@
           el.classList.add('highlight');
           setTimeout(() => el.classList.remove('highlight'), 1500);
         }
+        searchTerm = ''; //ux: clear input on search match
       } else {
         alert('Pokémon not found!');
       }
@@ -34,7 +35,6 @@
       class="bg-pkd-white-a0 border-0 w-full font-pokemon text-xs text-pkd-white-a100 placeholder-pkd-white-a100 border-transparent focus:border-transparent focus:ring-0"
       on:keydown={(e) => { if (e.key === 'Enter') {
         scrollToPokemon();
-        searchTerm = ''; //ux: clears input on search
       }}}
     />
       <button on:click={scrollToPokemon} class="text-pkd-white-a100" aria-label="Search"><img src="/icons/search-white.svg" alt="search" class="fill-white"></button>
