@@ -8,6 +8,17 @@ export async function fetchPokemonCards(pokemonId) {
 
     const data = await response.json();
 
+    function getPrice(prices) {
+        return (
+            prices?.normal?.market ??
+            prices?.holofoil?.market ??
+            prices?.reverseHolofoil?.market ??
+            prices?.["1stEditionNormal"]?.market ??
+            prices?.["1stEditionHolofoil"]?.market ??
+            null
+        )
+    }
+
     return data.data.map(card => ({
         id: card.id,
         name: card.name,
@@ -15,7 +26,7 @@ export async function fetchPokemonCards(pokemonId) {
         releaseDate: card.set.releaseDate,
         setName: card.set.name,
         setSeriesName: card.set.series,
-        price: card.tcgplayer?.prices?.normal?.market ?? null // fallback if no price
+        price: getPrice(card.tcgplayer?.prices) ?? null // fallback if no price
 
     }));
 }
