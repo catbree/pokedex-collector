@@ -4,7 +4,7 @@
   import SectionHeader from "$lib/components/SectionHeader.svelte";
 </script>
 
-<button class="flex flex-row items-center cursor-pointer text-white font-pokemon hover:bg-pkd-pink-3 text-3xs"><img class="w-8 h-8" src="/icons/chevron-left-white.svg" alt="arrow-up icon"/>Back</button>
+<a href="/" class="flex flex-row items-center cursor-pointer text-white font-pokemon hover:underline text-3xs mb-1"><img class="w-8 h-8" src="/icons/chevron-left-white.svg" alt="arrow-up icon"/>Back</a>
 
 <div class="max-w-4xl mx-auto bg-pkd-purple-1 mb-4">
   <PokemonHeader pokemon={data.pokemon} />
