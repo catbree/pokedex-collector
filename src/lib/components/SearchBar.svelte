@@ -63,6 +63,7 @@
             Credit goes to <a href="https://developer.tcgplayer.com/" target="_blank" rel="noopener noreferrer" class="underline">TCGplayer API</a> and <a href="https://pokemontcg.io/" target="_blank" rel="noopener noreferrer" class="underline">Pokémon TCG API</a> for data, <a href="https://www.dafont.com/pkmn-rbygsc.font" target="_blank" rel="noopener noreferrer" class="underline">dafont.com</a> for fonts, and <a href="https://www.nintendo.com/" target="_blank" rel="noopener noreferrer" class="underline">Nintendo</a>, <a href="https://www.gamefreak.co.jp/" target="_blank" rel="noopener noreferrer" class="underline">Game Freak</a>, and <a href="https://www.pokemon.com/" target="_blank" rel="noopener noreferrer" class="underline">The Pokémon Company</a> for Pokémon.
           </p>
           <p class="mb-2">Passion project built and designed by <a href="https://leunghoicheng.com" target="_blank" rel="noopener noreferrer" class="underline">catbree</p>
+          <div class="fixed bottom-4 right-4 flex flex-row gap-2">
             <button
             on:click={() => {
               const data = JSON.stringify(localStorage);
@@ -70,10 +71,28 @@
                 .then(() => alert('Copied to clipboard!'))
                 .catch(() => alert('Failed to copy.'));
             }}
-            class="fixed bottom-4 right-4 bg-pkd-white-a40 border-2 border-pkd-white-a100 px-4 py-2 text-white cursor-pointer hover:bg-pkd-pink-3 hover:border-pkd-pink-3 z-50"
+            class="bg-pkd-white-a40 border-2 border-pkd-white-a100 px-4 py-2 text-white cursor-pointer hover:bg-pkd-pink-3 hover:border-pkd-pink-3 z-50"
           >
             Export Progress
           </button>
+          <button
+          class="bg-pkd-white-a40 border-2 border-pkd-white-a100 px-4 py-2 text-white cursor-pointer hover:bg-pkd-pink-3 hover:border-pkd-pink-3 z-50"
+          on:click={async () => {
+            try {
+              const text = await navigator.clipboard.readText();
+              const data = JSON.parse(text);
+              Object.entries(data).forEach(([k, v]) => localStorage.setItem(k, v));
+              alert('Progress imported! Reloading...');
+              location.reload(); // optional but helpful
+            } catch (e) {
+              alert('Failed to import. Make sure you copied valid data.');
+            }
+          }}
+        >
+          Import Progress
+        </button>
+            </div>
+            
       </div>
     </div>
   {/if}
