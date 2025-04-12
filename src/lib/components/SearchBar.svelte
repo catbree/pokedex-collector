@@ -57,7 +57,7 @@
           <button on:click={() => showInfo = false} class="hover:bg-pkd-purple-2 cursor-pointer"><img class="w-full h-full" src="/icons/cross.svg" alt="cross icon"/></button>
         </div>
           <p class="mb-4 text-white border-pkd-pink-3 bg-pkd-pink-4 border-2 p-3">Note: Your progress is saved in this browser only. Clearing your cache will reset everything!</p>
-          <p class="mb-4">If you're looking for something simple to check off your full National Dex collection (currently: 1025) and browse available cards, this may work for you!</p>
+          <p class="mb-4">If you're looking for something simple to check off your full Pokemon National Pokedex collection (currently: 1025) and browse available cards, this may work for you!</p>
           <p class="mb-4">To start, tap a Pokéball to mark something as collected. Click on a Pokémon to view all of its available cards.</p>
           <p class="mb-4">
             Credit goes to <a href="https://developer.tcgplayer.com/" target="_blank" rel="noopener noreferrer" class="underline">TCGplayer API</a> and <a href="https://pokemontcg.io/" target="_blank" rel="noopener noreferrer" class="underline">Pokémon TCG API</a> for data, <a href="https://www.dafont.com/pkmn-rbygsc.font" target="_blank" rel="noopener noreferrer" class="underline">dafont.com</a> for fonts, and <a href="https://www.nintendo.com/" target="_blank" rel="noopener noreferrer" class="underline">Nintendo</a>, <a href="https://www.gamefreak.co.jp/" target="_blank" rel="noopener noreferrer" class="underline">Game Freak</a>, and <a href="https://www.pokemon.com/" target="_blank" rel="noopener noreferrer" class="underline">The Pokémon Company</a> for Pokémon.
