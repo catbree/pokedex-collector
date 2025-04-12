@@ -17,7 +17,7 @@
 @theme {
 
     --text-2xs: 0.625rem;
-    --text-2xs--line-height: 1rem;
+    --text-2xs--line-height: 1.3rem;
 
     --text-3xs: 0.600rem;
     --text-3xs--line-height: 1rem;
@@ -42,6 +42,27 @@
 @media (min-width: 450px) {
     .grid-xs-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* wiggle animation for about-modal */
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(6deg);
     }
 }
 
