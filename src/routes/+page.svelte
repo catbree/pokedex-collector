@@ -1,7 +1,7 @@
 <script>
   export let data;
   import PokemonHeader from '$lib/components/PokemonHeader.svelte';
-  import ProgressSummary from '$lib/components/ProgressSummary.svelte';
+  import ProgressSummary from '../lib/components/ProgressSummary.svelte';
   import SearchBar from '$lib/components/SearchBar.svelte';
   import SectionHeader from '$lib/components/SectionHeader.svelte';
 </script>
