@@ -28,10 +28,10 @@ export async function fetchPokemonCards(pokemonId) {
             const dateBexist = !isNaN(dateB);
 
             if (!dateAexist && !dateBexist) return 0; //both unavailable, don't order
-            if (!dateAexist) return -1; // A missing, likely old card, shift to front
-            if (!dateBexist) return 1 // B missing, likely old, shift to front
+            if (!dateAexist) return 1; // A missing, likely old card, shift to front
+            if (!dateBexist) return -1; // B missing, likely old, shift to front
 
-            return dateA - dateB;
+            return dateB - dateA;
         })
         .map(card => ({
             id: card.id,
