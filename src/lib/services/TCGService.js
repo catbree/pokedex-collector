@@ -16,7 +16,9 @@ function getSet(setId) {
 }
 
 export async function fetchPokemonCards(pokemonId) {
-    const res = await fetch(`${API}/cards?dexId=${pokemonId}`);
+    // `eq:` forces an exact match — without it TCGdex does a substring match,
+    // so dexId=25 would also return 125, 225, 250, 255... (Electabuzz, Ho-Oh, etc.)
+    const res = await fetch(`${API}/cards?dexId=eq:${pokemonId}`);
     /** @type {Array<{ id: string, localId: string, name: string, image?: string }>} */
     const brief = await res.json();
 
