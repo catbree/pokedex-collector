@@ -18,7 +18,7 @@
     <img src="{card.image}" alt="{card.name}" class="w-full h-auto" />
     <div class="flex flex-col pt-3 px-2 font-pokemon text-pkd-purple-1 text-2xs gap-1">  
       <div class="flex flex-row gap-2">
-        <p>{card.releaseDate.slice(0,4)}</p>
+        {#if card.releaseDate}<p>{card.releaseDate.slice(0, 4)}</p>{/if}
         <p class="text-pkd-white-a40">•</p>
         {#if card.price}<p>${card.price}</p>{/if}
       </div>
