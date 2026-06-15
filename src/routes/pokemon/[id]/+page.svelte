@@ -2,9 +2,19 @@
   export let data;
   import PokemonHeader from "$lib/components/PokemonHeader.svelte";
   import SectionHeader from "$lib/components/SectionHeader.svelte";
+  import { goto } from "$app/navigation";
+
+  // Go back through history so SvelteKit restores the scroll position on the
+  // dex list (a plain href="/" is a fresh navigation that lands at the top).
+  // Fall back to the home page when there's no history to return to.
+  function goBack(event) {
+    event.preventDefault();
+    if (history.length > 1) history.back();
+    else goto("/");
+  }
 </script>
 
-<a href="/" class="flex flex-row items-center cursor-pointer text-white font-pokemon hover:underline text-3xs mb-1"><img class="w-8 h-8" src="/icons/chevron-left-white.svg" alt="arrow-up icon"/>Back</a>
+<a href="/" on:click={goBack} class="flex flex-row items-center cursor-pointer text-white font-pokemon hover:underline text-3xs mb-1"><img class="w-8 h-8" src="/icons/chevron-left-white.svg" alt="arrow-up icon"/>Back</a>
 
 <div class="max-w-4xl mx-auto bg-pkd-purple-1 mb-4">
   <PokemonHeader pokemon={data.pokemon} />
