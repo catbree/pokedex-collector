@@ -1,6 +1,27 @@
 <script>
     import '../app.css';
+    import { onMount } from 'svelte';
     import { navigating } from '$app/stores';
+    import { session } from '$lib/stores/auth';
+    import { loadCollection, initLocalCollection } from '$lib/services/StorageService';
+
+    // Anonymous users see their localStorage progress immediately on load.
+    onMount(initLocalCollection);
+
+    // When a user signs in, merge their cloud collection into the store (once).
+    // Reset on sign-out so signing back in re-loads. The actual auth UI lives in
+    // the About panel (SearchBar.svelte).
+    /** @type {string | null} */
+    let loadedUserId = $state(null);
+    $effect(() => {
+      const userId = $session?.user?.id ?? null;
+      if (!userId) {
+        loadedUserId = null;
+      } else if (userId !== loadedUserId) {
+        loadedUserId = userId;
+        loadCollection(userId);
+      }
+    });
  </script>
 
 <svelte:head>
@@ -26,6 +47,7 @@
 			<p class="font-pokemon text-2xs text-white">Loading…</p>
 		</div>
 	{/if}
+
 	<slot />
 </div>
 

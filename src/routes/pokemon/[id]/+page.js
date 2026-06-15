@@ -1,5 +1,5 @@
 import { fetchPokemonCards } from '$lib/services/TCGService.js';
-import { getCollectionState, migrateToCollectionStatesIfNeeded } from '$lib/services/StorageService.js';
+import { migrateToCollectionStatesIfNeeded } from '$lib/services/StorageService.js';
 import { fetchNationalDex } from "$lib/services/NationalDexService.js";
 
 export async function load({ params, fetch }) {

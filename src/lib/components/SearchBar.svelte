@@ -1,8 +1,20 @@
 <script>
+    import { session, signOut } from '$lib/stores/auth';
+    import { clearLocalCollection } from '$lib/services/StorageService';
+    import Auth from '$lib/components/Auth.svelte';
+
     export let pokedex = [];
     let searchTerm = '';
     let showInfo = false;
-  
+    let showAuth = false;
+
+    async function handleSignOut() {
+      await signOut();
+      // Clear the device cache so an anonymous/next session doesn't inherit
+      // (or accidentally re-upload) the previous account's collection.
+      clearLocalCollection();
+    }
+
     function scrollToPokemon() {
       const match = pokedex.find(p => 
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -56,7 +68,19 @@
           <h2 class="text-sm">ABOUT</h2>
           <button on:click={() => showInfo = false} class="hover:bg-pkd-purple-2 cursor-pointer"><img class="w-full h-full" src="/icons/cross.svg" alt="cross icon"/></button>
         </div>
-          <p class="mb-4 text-white border-pkd-pink-3 bg-pkd-pink-4 border-2 p-3">Note: Your progress is saved in this browser only. Clearing your cache will reset everything!</p>
+          {#if $session}
+            <div class="mb-4 flex flex-row items-center justify-between gap-2 border-2 border-pkd-purple-2 bg-pkd-purple-2 p-3">
+              <span class="truncate">Signed in as {$session.user.email}</span>
+              <button on:click={handleSignOut} class="shrink-0 bg-pkd-pink-4 border-2 border-pkd-pink-3 px-3 py-2 text-white cursor-pointer hover:bg-pkd-pink-3">Sign out</button>
+            </div>
+            <p class="mb-4 text-white border-pkd-pink-3 bg-pkd-pink-4 border-2 p-3">Your progress is saved to your account and synced across devices.</p>
+          {:else}
+            <div class="mb-4 flex flex-row items-center justify-between gap-2 border-2 border-pkd-purple-2 bg-pkd-purple-2 p-3">
+              <span>Save your progress to an account</span>
+              <button on:click={() => { showInfo = false; showAuth = true; }} class="shrink-0 bg-pkd-pink-4 border-2 border-pkd-pink-3 px-3 py-2 text-white cursor-pointer hover:bg-pkd-pink-3">Sign in / Sign up</button>
+            </div>
+            <p class="mb-4 text-white border-pkd-pink-3 bg-pkd-pink-4 border-2 p-3">Note: Your progress is saved in this browser only. Sign in to save it to your account so clearing your cache won't reset everything!</p>
+          {/if}
           <p class="mb-4">If you're looking for something simple to check off your full Pokemon National Pokedex collection (currently: 1025) and browse available cards, this may work for you!</p>
           <p class="mb-4">To start, tap a Pokéball to mark something as collected. Click on a Pokémon to view all of its available cards.</p>
           <p class="mb-4">
@@ -95,4 +119,8 @@
             
       </div>
     </div>
+  {/if}
+
+  {#if showAuth}
+    <Auth onClose={() => showAuth = false} />
   {/if}

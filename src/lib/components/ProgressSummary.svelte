@@ -1,23 +1,17 @@
 <script>
-    import { getCollectionStates } from "$lib/services/StorageService";
-  
-    let pokeballCount = $state(0);
-    let masterballCount = $state(0);
-    let total = $derived(pokeballCount + masterballCount);
-  
+    import { collectionStates } from "$lib/services/StorageService";
+
     const max = 1025;
-  
     const pct = (n) => Math.min(100, Math.round((n / max) * 100));
+
+    // Derived straight from the shared store, so counts update automatically
+    // when toggles happen or the cloud collection finishes loading.
+    let pokeballCount   = $derived(Object.values($collectionStates).filter(v => v === 1).length);
+    let masterballCount = $derived(Object.values($collectionStates).filter(v => v === 2).length);
+    let total           = $derived(pokeballCount + masterballCount);
     let pokePct   = $derived(pct(pokeballCount));
     let masterPct = $derived(pct(masterballCount));
     let totalPct  = $derived(pct(total));
-  
-    // recalc when storage changes
-    $effect(() => {
-      const states = getCollectionStates();
-      pokeballCount   = Object.values(states).filter(v => v === 1).length;
-      masterballCount = Object.values(states).filter(v => v === 2).length;
-    });
   </script>
   
   <div class="max-w-4xl mx-auto flex items-center gap-3 py-3 px-1">

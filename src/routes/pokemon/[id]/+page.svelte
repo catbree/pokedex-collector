@@ -7,6 +7,7 @@
   // Go back through history so SvelteKit restores the scroll position on the
   // dex list (a plain href="/" is a fresh navigation that lands at the top).
   // Fall back to the home page when there's no history to return to.
+  /** @param {MouseEvent} event */
   function goBack(event) {
     event.preventDefault();
     if (history.length > 1) history.back();

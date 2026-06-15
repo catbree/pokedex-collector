@@ -1,18 +1,19 @@
 <script>
   import {
-    toggleCollectionState,
-    getCollectionState
+    collectionStates,
+    toggleCollectionState
   } from "$lib/services/StorageService.js";
-  
+
   export let pokemon;
-  
-  let pokemonState= getCollectionState(pokemon.id);
-  
+
+  // Reactively derived from the shared store, so the icon updates everywhere
+  // the moment the state changes (and after the cloud load completes).
+  $: pokemonState = Number($collectionStates[pokemon.id]) || 0;
+
   function handleToggle(event) {
     event.preventDefault();
     event.stopPropagation();
     toggleCollectionState(pokemon.id);
-    pokemonState = getCollectionState(pokemon.id); // Ensure reactivity
   }
 </script>
   
