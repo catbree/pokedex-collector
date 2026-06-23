@@ -39,22 +39,35 @@
     }
   </script>
   
-  <div class="max-w-4xl mx-auto flex justify-between gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2 -pl-2">
-    <button class="cursor-pointer hover:animate-[wiggle_0.3s] hover:bg-pkd-white-a40 hover:rounded-full" on:click={() => {showInfo=true;}}>
-      <img src="/icons/masterball.svg" alt="A masterball." class="w-12 h-12" />
+  <div class="max-w-4xl mx-auto flex justify-between items-stretch gap-2 sticky top-0 z-10 backdrop-blur py-2 -mt-2">
+    <button class="shrink-0 cursor-pointer hover:animate-[wiggle_0.3s] hover:bg-pkd-white-a40 hover:rounded-full" on:click={() => {showInfo=true;}}>
+      <img src="/icons/masterball.svg" alt="About & sign in" class="w-12 h-12" />
     </button>
-    <div class="flex flex-grow border border-pkd-pink-3 bg-pkd-pink-4 border-2 focus-within:border-white hover:bg-pkd-pink-3">
+
+    <!-- search: dark LCD strip -->
+    <div class="flex flex-grow items-center gap-2 px-3 bg-[#10160C]" style="box-shadow: inset 0 2px 8px rgba(0,0,0,.55);">
       <input
-      bind:value={searchTerm}
-      placeholder="Search 'ditto' or '132'"
-      class="bg-pkd-white-a0 border-0 w-full font-pokemon text-xs text-pkd-white-a100 placeholder-pkd-white-a100 border-transparent focus:border-transparent focus:ring-0"
-      on:keydown={(e) => { if (e.key === 'Enter') {
-        scrollToPokemon();
-      }}}
-    />
-      <button on:click={scrollToPokemon} class="text-pkd-white-a100" aria-label="Search"><img src="/icons/search-white.svg" alt="search" class="fill-white"></button>
+        bind:value={searchTerm}
+        placeholder="Search 'ditto' or '132'"
+        class="w-full bg-transparent border-0 font-pokemon text-xs text-pkd-lcd placeholder-[#5e7a48] focus:ring-0 focus:outline-none"
+        on:keydown={(e) => { if (e.key === 'Enter') {
+          scrollToPokemon();
+        }}}
+      />
+      <button on:click={scrollToPokemon} aria-label="Search" class="shrink-0 cursor-pointer">
+        <img src="/icons/search-white.svg" alt="" class="w-5 h-5" />
+      </button>
     </div>
-    <button on:click={scrollToTop} class="w-12 h-12 bg-pkd-pink-4 border-2 border-pkd-pink-3 cursor-pointer hover:bg-pkd-pink-3"><img class="w-full h-full" src="/icons/arrow-up-white.svg" alt="arrow-up icon"/></button>
+
+    <!-- scroll to top: glossy red device key -->
+    <button
+      on:click={scrollToTop}
+      aria-label="Scroll to top"
+      class="w-12 h-12 shrink-0 grid place-items-center rounded-[10px] cursor-pointer active:translate-y-0.5"
+      style="background: radial-gradient(circle at 37% 31%, var(--color-pkd-shell-hi) 0 17%, var(--color-pkd-shell) 60%, var(--color-pkd-shell-3) 100%); box-shadow: inset -2px -3px 0 rgba(0,0,0,.22), inset 2px 2px 0 rgba(255,255,255,.25);"
+    >
+      <img class="w-[22px] h-[22px]" src="/icons/arrow-up.svg" alt="" />
+    </button>
   </div>
 
   {#if showInfo}
