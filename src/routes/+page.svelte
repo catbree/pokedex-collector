@@ -18,7 +18,7 @@
 <SectionHeader left="National Pokedex"/>
 <ul class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 my-2">
   {#each data.pokedex as pokemon}
-    <li class="bg-pkd-purple-1 transition hover:bg-pkd-purple-2 cursor-pointer " id="pokemon-{pokemon.id}">
+    <li class="bg-pkd-cream border-[3px] border-pkd-ink shadow-[4px_4px_0_#1A120B] transition hover:bg-[#FFF7E3] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_#1A120B] cursor-pointer" id="pokemon-{pokemon.id}">
       <a href="/pokemon/{pokemon.id}" class="block">
         <PokemonHeader {pokemon}/>
       </a>
