@@ -39,12 +39,17 @@
 
 <!-- Backdrop: clicking outside the card closes the modal. -->
 <div
-  class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-pkd-ink/70 px-4"
   onclick={onClose}
   role="presentation"
 >
   <!-- Card: stop clicks here from bubbling up to the backdrop. -->
-  <div class="relative w-full max-w-sm bg-pkd-purple-1 p-6" onclick={(e) => e.stopPropagation()} role="presentation">
+  <div
+    class="relative w-full max-w-sm bg-pkd-cream border-[3px] border-pkd-ink p-6"
+    style="box-shadow: 6px 6px 0 var(--color-pkd-ink);"
+    onclick={(e) => e.stopPropagation()}
+    role="presentation"
+  >
     <button
       onclick={onClose}
       aria-label="Close"
@@ -53,24 +58,24 @@
       <img src="/icons/cross.svg" alt="" class="h-3 w-3" />
     </button>
 
-    <h1 class="mb-1 text-center font-pokemon text-sm text-pkd-purple-6">Pokédex Collector</h1>
-    <p class="mb-5 text-center font-pokemon text-3xs text-pkd-purple-3">
+    <h1 class="mb-1 text-center font-pokemon text-sm text-pkd-ink">Pokédex Collector</h1>
+    <p class="mb-5 text-center font-pokemon text-3xs text-pkd-green">
       {mode === "signin" ? "Sign in to save your progress" : "Create an account to save your progress"}
     </p>
 
     <form onsubmit={handleSubmit} class="flex flex-col gap-3">
-      <label class="flex flex-col gap-1 font-pokemon text-3xs text-pkd-purple-6">
+      <label class="flex flex-col gap-1 font-pokemon text-3xs text-pkd-ink">
         Email
         <input
           type="email"
           bind:value={email}
           required
           autocomplete="email"
-          class="rounded-xs border border-pkd-purple-2 bg-white px-2 py-2 font-pokemon text-2xs text-pkd-purple-6"
+          class="border-[2px] border-pkd-ink bg-white px-2 py-2 font-pokemon text-2xs text-pkd-ink focus:outline-none focus:ring-2 focus:ring-pkd-lens"
         />
       </label>
 
-      <label class="flex flex-col gap-1 font-pokemon text-3xs text-pkd-purple-6">
+      <label class="flex flex-col gap-1 font-pokemon text-3xs text-pkd-ink">
         Password
         <input
           type="password"
@@ -78,17 +83,18 @@
           required
           minlength="6"
           autocomplete={mode === "signin" ? "current-password" : "new-password"}
-          class="rounded-xs border border-pkd-purple-2 bg-white px-2 py-2 font-pokemon text-2xs text-pkd-purple-6"
+          class="border-[2px] border-pkd-ink bg-white px-2 py-2 font-pokemon text-2xs text-pkd-ink focus:outline-none focus:ring-2 focus:ring-pkd-lens"
         />
       </label>
 
-      {#if error}<p class="font-pokemon text-3xs text-pkd-pink-4">{error}</p>{/if}
-      {#if notice}<p class="font-pokemon text-3xs text-pkd-green-6">{notice}</p>{/if}
+      {#if error}<p class="font-pokemon text-3xs text-[#c94a3f]">{error}</p>{/if}
+      {#if notice}<p class="font-pokemon text-3xs text-pkd-green-on">{notice}</p>{/if}
 
       <button
         type="submit"
         disabled={loading}
-        class="mt-1 cursor-pointer rounded-xs bg-pkd-pink-4 px-3 py-2 font-pokemon text-2xs text-white transition hover:bg-pkd-purple-4 disabled:opacity-60"
+        class="mt-1 cursor-pointer border-[3px] border-pkd-ink bg-pkd-shell px-3 py-2 font-pokemon text-2xs text-white transition hover:bg-pkd-shell-2 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none disabled:opacity-60"
+        style="box-shadow: 3px 3px 0 var(--color-pkd-ink);"
       >
         {loading ? "Please wait…" : mode === "signin" ? "Sign in" : "Sign up"}
       </button>
@@ -96,7 +102,7 @@
 
     <button
       onclick={switchMode}
-      class="mt-4 w-full cursor-pointer text-center font-pokemon text-3xs text-pkd-purple-3 hover:underline"
+      class="mt-4 w-full cursor-pointer text-center font-pokemon text-3xs text-pkd-green hover:underline"
     >
       {mode === "signin" ? "Need an account? Sign up" : "Already have an account? Sign in"}
     </button>

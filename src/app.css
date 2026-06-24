@@ -85,6 +85,16 @@
     }
 }
 
+/* signed-out lens: pulsing ring to prompt sign-in, and a blinking pip */
+@keyframes lensPulse {
+    0%, 100% { box-shadow: inset 0 0 0 3px #cfe0ff, 0 3px 0 var(--color-pkd-shell-3), 0 0 0 0 rgba(180,214,255,0); }
+    50% { box-shadow: inset 0 0 0 3px #cfe0ff, 0 3px 0 var(--color-pkd-shell-3), 0 0 0 6px rgba(180,214,255,.5); }
+}
+
+@keyframes dotblink {
+    50% { opacity: .2; }
+}
+
 /* this is for highlighting <li> which consist of pokemon header on search */
 .highlight {
     background-color: var(--color-pkd-purple-3);

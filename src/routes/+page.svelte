@@ -1,9 +1,25 @@
 <script>
   export let data;
+  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
   import PokemonHeader from '$lib/components/PokemonHeader.svelte';
   import ProgressSummary from '../lib/components/ProgressSummary.svelte';
-  import SearchBar from '$lib/components/SearchBar.svelte';
   import SectionHeader from '$lib/components/SectionHeader.svelte';
+
+  // Arriving here via a search made from another route (?dex=<id>, set by
+  // the layout's topbar) — scroll/highlight the match, then drop the param.
+  onMount(() => {
+    const id = $page.url.searchParams.get('dex');
+    if (!id) return;
+    const el = document.getElementById(`pokemon-${id}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      el.classList.add('highlight');
+      setTimeout(() => el.classList.remove('highlight'), 1500);
+    }
+    goto('/', { replaceState: true, noScroll: true, keepFocus: true });
+  });
 </script>
 
 <style>
@@ -12,7 +28,6 @@
     scroll-margin-top: 80px;
   }
 </style>
-<SearchBar pokedex={data.pokedex} />
 <SectionHeader left="Collected"/>
 <ProgressSummary/>
 <SectionHeader left="National Pokedex"/>

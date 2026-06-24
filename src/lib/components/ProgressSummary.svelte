@@ -15,7 +15,7 @@
   </script>
   
   <div class="max-w-4xl mx-auto flex flex-wrap items-center gap-3 py-3 px-1">
-    <div class="flex flex-grow min-w-[140px] h-4 overflow-hidden bg-pkd-cream-2" style="box-shadow: inset 2px 2px 0 rgba(0,0,0,.12);">
+    <div class="flex flex-grow min-w-[140px] h-4 overflow-hidden bg-pkd-cream-2 border-[3px] border-pkd-ink" style="box-shadow: inset 2px 2px 0 rgba(0,0,0,.12);">
       <!-- regular poké balls -->
       <div class="bg-pkd-shell" style="width: {pokePct}%"></div>
       <!-- master balls / favourites -->
