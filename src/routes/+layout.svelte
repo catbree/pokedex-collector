@@ -128,15 +128,19 @@
 		<!-- Topbar: persistent across every route, sits above the scrolling LCD. -->
 		<div class="flex shrink-0 items-center gap-2 pb-2 sm:pb-3">
 			<!-- search: dark LCD strip -->
-			<div class="flex flex-1 min-w-0 h-12 items-center gap-2 px-3 bg-[#10160C] border-[3px] border-pkd-ink rounded-[8px]" style="box-shadow: inset 0 0 0 3px #2a3a22, inset 0 2px 8px rgba(0,0,0,.55);">
+			<div class="flex flex-1 min-w-0 h-12 items-center gap-2 pl-2 pr-3 bg-[#10160C] border-[3px] border-pkd-ink rounded-[8px]" style="box-shadow: inset 0 0 0 3px #2a3a22, inset 0 2px 8px rgba(0,0,0,.55);">
 				<input
 					bind:value={searchTerm}
-					placeholder="Search 'ditto' or '132'"
+					placeholder="Search ditto or 132"
 					class="w-full bg-transparent border-0 font-pokemon text-xs text-pkd-lcd placeholder-[#5e7a48] focus:ring-0 focus:outline-none"
 					onkeydown={(e) => { if (e.key === 'Enter') scrollToPokemon(); }}
 				/>
 				<button onclick={scrollToPokemon} aria-label="Search" class="shrink-0 cursor-pointer">
-					<img src="/icons/search-white.svg" alt="" class="w-5 h-5" />
+					<span
+						class="block w-5 h-5 bg-pkd-lcd"
+						style="mask-image: url(/icons/search-white.svg); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url(/icons/search-white.svg); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"
+						aria-hidden="true"
+					></span>
 				</button>
 			</div>
 
@@ -147,7 +151,11 @@
 				class="w-12 h-12 shrink-0 grid place-items-center rounded-[10px] border-[3px] border-pkd-ink cursor-pointer active:translate-y-0.5"
 				style="background: radial-gradient(circle at 37% 31%, var(--color-pkd-shell-hi) 0 17%, var(--color-pkd-shell) 60%, var(--color-pkd-shell-3) 100%); box-shadow: inset -2px -3px 0 rgba(0,0,0,.22), inset 2px 2px 0 rgba(255,255,255,.25);"
 			>
-				<img class="w-[22px] h-[22px]" src="/icons/arrow-up.svg" alt="" />
+				<span
+					class="block w-7 h-7 bg-pkd-shell-3"
+					style="mask-image: url(/icons/arrow-up-bold.svg); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url(/icons/arrow-up-bold.svg); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; filter: drop-shadow(-1px -1px 0 rgba(0,0,0,.45)) drop-shadow(1px 1px 0 rgba(255,255,255,.35));"
+					aria-hidden="true"
+				></span>
 			</button>
 
 			<!-- decorative status LEDs -->

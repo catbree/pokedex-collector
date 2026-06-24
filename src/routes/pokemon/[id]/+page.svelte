@@ -32,7 +32,7 @@
   <div>
     <!-- Card image over a lightened card-back placeholder. The back shows
          through when a card has no image, the file 404s, or while loading. -->
-    <div class="relative aspect-[5/7] overflow-hidden border-[3px] border-pkd-ink shadow-[4px_4px_0_var(--color-pkd-ink)]">
+    <div class="relative aspect-[5/7] overflow-hidden">
       <!-- Inset so a loaded (full-size) card image overlaps and fully covers it. -->
       <div class="absolute inset-2 flex items-center justify-center bg-pkd-cream-2/60">
         <img src="/icons/pokeball.svg" alt="" class="w-1/3 opacity-20" />
