@@ -99,7 +99,7 @@
 <svelte:head>
   <title>1025 Pokémon National Dex Collection</title>
   <meta name="description" content="A simple tracker for your full National Dex Pokémon card collection." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <link rel="icon" href="/icons/favicon.svg" />
 
   <!-- Google Analytics -->
@@ -112,7 +112,7 @@
   </script>
 </svelte:head>
 
-<div class="h-[100dvh] overflow-hidden flex" style="background: radial-gradient(120% 100% at 50% 0%, #C5331F, #9E2418 85%);">
+<div class="h-[100dvh] overflow-hidden flex bg-pkd-ink" style="padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);">
 	{#if $navigating}
 		<div class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-pkd-ink/80 backdrop-blur-sm">
 			<img src="/icons/pokeball.svg" alt="" class="h-16 w-16 pulse-size" />
