@@ -37,6 +37,25 @@
     --color-pkd-white-a40: #FFFFFF66;
     --color-pkd-white-a100: #FFFFFF;
     --color-pkd-white-a0: #FFFFFF00;
+
+    /* --- UI refresh: physical Pokédex palette ---------------------------------
+       Added alongside the legacy pkd-purple/pink/green tokens above so nothing
+       breaks; components migrate to these one at a time. Generates utilities
+       like bg-pkd-shell, border-pkd-ink, text-pkd-lcd, etc. */
+    --color-pkd-ink: #1A120B;        /* near-black warm outline (borders, text) */
+    --color-pkd-shell: #D83A2C;      /* Pokédex red body */
+    --color-pkd-shell-2: #C02D20;    /* darker shell (gradient) */
+    --color-pkd-shell-3: #9E2418;    /* shell shadow / extrusion */
+    --color-pkd-shell-hi: #EE6B5D;   /* shell top highlight */
+    --color-pkd-cream: #F3EAD3;      /* LCD paper / card surface */
+    --color-pkd-cream-2: #E7D9B6;    /* sunken cream / dither */
+    --color-pkd-lcd: #B7C98A;        /* pea-green LCD text */
+    --color-pkd-green: #2F6B3A;      /* section bars / accent green */
+    --color-pkd-green-d: #163D20;    /* dark green (dex number stroke + bar) */
+    --color-pkd-green-on: #2F9A55;   /* signed-in / connected green */
+    --color-pkd-gold: #E9B949;       /* LED / accent gold */
+    --color-pkd-lens: #3B6FB5;       /* lens blue */
+    --color-pkd-lens-hi: #BCD6FF;    /* lens highlight */
 }
 
 @media (min-width: 450px) {
@@ -64,6 +83,16 @@
     75% {
         transform: rotate(6deg);
     }
+}
+
+/* signed-out lens: pulsing ring to prompt sign-in, and a blinking pip */
+@keyframes lensPulse {
+    0%, 100% { box-shadow: inset 0 0 0 3px #cfe0ff, 0 3px 0 var(--color-pkd-shell-3), 0 0 0 0 rgba(180,214,255,0); }
+    50% { box-shadow: inset 0 0 0 3px #cfe0ff, 0 3px 0 var(--color-pkd-shell-3), 0 0 0 6px rgba(180,214,255,.5); }
+}
+
+@keyframes dotblink {
+    50% { opacity: .2; }
 }
 
 /* this is for highlighting <li> which consist of pokemon header on search */
